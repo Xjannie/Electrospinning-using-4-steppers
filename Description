@@ -1,0 +1,7 @@
+This program will control 4 stepper motors for use in an electrospinning rig, although the motors can probably be used for any application.
+
+Of the motors used 1 will run continously at a slow speed and 1 at high speed. The high speed motor's has no microstepping. The other motor will move to a predetermined position before starting, while the last motor oscillates continously during the process.
+
+There are also 2 mechanical switches to home the stages upon startup.
+
+A RAMPS shield was used along with a Ardiuno MEGA.
