@@ -53,18 +53,16 @@ Serial.begin(9600);
 pinMode(homeButton1, INPUT_PULLUP);
 pinMode(homeButton2, INPUT_PULLUP);
  
-     stepper4.setMaxSpeed(40);
+stepper4.setMaxSpeed(40);
 stepper4.setAcceleration(100.0);
-    stepper4.moveTo(1000000);
- stepper2.setMaxSpeed(2000);
-    stepper2.setAcceleration(150.0);
-    stepper2.moveTo(1000000000);
-   
-      stepper1.setMaxSpeed(5000);
-   stepper1.setSpeed(-2000); 
-
-         stepper3.setMaxSpeed(20000);
-   stepper3.setSpeed(2000); 
+stepper4.moveTo(1000000);
+stepper2.setMaxSpeed(2000);
+stepper2.setAcceleration(150.0);
+stepper2.moveTo(1000000000);
+stepper1.setMaxSpeed(5000);
+stepper1.setSpeed(-2000); 
+stepper3.setMaxSpeed(20000);
+stepper3.setSpeed(2000); 
 
 stepper1Home();
 stepper3Home();
@@ -81,37 +79,28 @@ void loop() //this loop is the loop that oscillates the 1 stage, while rotating 
     {
 stepper3.moveTo(7500);
 stepper3.setSpeed(500);
-     stepper4.run();
-
+stepper4.run();
     }
-      stepper4.run();
-   
-      stepper2.run();
-     stepper3.runSpeedToPosition();
+stepper4.run();
+stepper2.run();
+stepper3.runSpeedToPosition();
      if (stepper3.distanceToGo() == 0)
     {
-
 stepper3.moveTo(0);
 stepper3.setSpeed(500);
-  stepper4.run();
+stepper4.run();
     }
-
-     stepper2.run();
+    stepper2.run();
     stepper4.run();
-     stepper3.runSpeedToPosition();
+    stepper3.runSpeedToPosition();
 }
 void stepper1Home(){ //homing and setting of distance to nozzle step
   hBval = digitalRead(homeButton1);
-
   while (hBval == LOW)
   {
     //backwards slowly till it hits the switch and stops
-        hBval = digitalRead(homeButton1);
-    
-    stepper1.runSpeed();
-
-
-
+  hBval = digitalRead(homeButton1);
+  stepper1.runSpeed();
   }
 stepper1.setCurrentPosition(0);
 stepper1.setAcceleration(1000);
@@ -119,30 +108,23 @@ stepper1.setSpeed(2000);
 stepper1.runToNewPosition(17000);
 delay(500);
 stepper1.setCurrentPosition(0);
-
 }
 void stepper3Home(){ //oscillation stage homing 
   hBval2 = digitalRead(homeButton2);
-
   while (hBval2 == LOW)
   {
     //backwards slowly till it hits the switch and stops
         hBval2 = digitalRead(homeButton2);
     stepper3.runSpeed();
-  
-
-
   }
-  stepper3.setCurrentPosition(0);
+stepper3.setCurrentPosition(0);
 stepper3.setAcceleration(1000);
 stepper3.setSpeed(3000);
 stepper3.runToNewPosition(-7000);
-  stepper3.setCurrentPosition(0);
-  delay(500);
-  stepper3.setAcceleration(1000);
+stepper3.setCurrentPosition(0);
+delay(500);
+stepper3.setAcceleration(1000);
 stepper3.setSpeed(3000);
 stepper3.runToNewPosition(-3750);
-  stepper3.setCurrentPosition(0);
-
-
+stepper3.setCurrentPosition(0);
 }
