@@ -1,11 +1,4 @@
-// ConstantSpeed.pde
-// -*- mode: C++ -*-
-//
-// Shows how to run AccelStepper in the simplest,
-// fixed speed mode with no accelerations
-/// \author  Mike McCauley (mikem@airspayce.com)
-// Copyright (C) 2009 Mike McCauley
-// $Id: ConstantSpeed.pde,v 1.1 2011/01/05 01:51:01 mikem Exp mikem $
+
 #define X_STEP_PIN         54
 #define X_DIR_PIN          55
 #define X_ENABLE_PIN       38
